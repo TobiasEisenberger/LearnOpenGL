@@ -148,31 +148,33 @@
     <ResourceCompile Include="LearnOpenGL.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\chapter\lighting\basic-lighting\fragment-color.frag" />
-    <None Include="shader\chapter\lighting\basic-lighting\vertex-color.vert" />
-    <None Include="shader\chapter\lighting\color\fragment-color-light.frag" />
-    <None Include="shader\chapter\lighting\color\fragment-color.frag" />
-    <None Include="shader\chapter\lighting\color\vertex-color-light.vert" />
-    <None Include="shader\chapter\lighting\color\vertex-color.vert" />
-    <None Include="shader\chapter\lighting\light-casters\fragment-color-directional.frag" />
-    <None Include="shader\chapter\lighting\light-casters\fragment-color-multiple.frag" />
-    <None Include="shader\chapter\lighting\light-casters\fragment-color-point.frag" />
-    <None Include="shader\chapter\lighting\light-casters\fragment-color-spot.frag" />
-    <None Include="shader\chapter\lighting\light-casters\vertex-color-directional.vert" />
-    <None Include="shader\chapter\lighting\lighting-maps\fragment-color.frag" />
-    <None Include="shader\chapter\lighting\lighting-maps\vertex-color.vert" />
-    <None Include="shader\chapter\lighting\materials\fragment-color-light.frag" />
-    <None Include="shader\chapter\lighting\materials\fragment-color.frag" />
-    <None Include="shader\chapter\model-loading\fragment.frag" />
-    <None Include="shader\chapter\model-loading\vertex.vert" />
+    <None Include="shader\chapter\1 lighting\basic-lighting\fragment-color.frag" />
+    <None Include="shader\chapter\1 lighting\basic-lighting\vertex-color.vert" />
+    <None Include="shader\chapter\1 lighting\color\fragment-color-light.frag" />
+    <None Include="shader\chapter\1 lighting\color\fragment-color.frag" />
+    <None Include="shader\chapter\1 lighting\color\vertex-color-light.vert" />
+    <None Include="shader\chapter\1 lighting\color\vertex-color.vert" />
+    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-directional.frag" />
+    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-multiple.frag" />
+    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-point.frag" />
+    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-spot.frag" />
+    <None Include="shader\chapter\1 lighting\light-casters\vertex-color-directional.vert" />
+    <None Include="shader\chapter\1 lighting\lighting-maps\fragment-color.frag" />
+    <None Include="shader\chapter\1 lighting\lighting-maps\vertex-color.vert" />
+    <None Include="shader\chapter\1 lighting\materials\fragment-color-light.frag" />
+    <None Include="shader\chapter\1 lighting\materials\fragment-color.frag" />
+    <None Include="shader\chapter\2 model-loading\fragment.frag" />
+    <None Include="shader\chapter\2 model-loading\vertex.vert" />
+    <None Include="shader\chapter\3 advanced opengl\fragment.frag" />
+    <None Include="shader\chapter\3 advanced opengl\vertex.vert" />
     <None Include="shader\fragment.frag" />
-    <None Include="shader\particle-sim\fragment.frag" />
-    <None Include="shader\particle-sim\vertex.vert" />
     <None Include="shader\vertex.vert" />
     <None Include="vs1.bin" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\awesomeface.png" />
+    <Image Include="resource\img\marble.jpg" />
+    <Image Include="resource\img\metal.png" />
     <Image Include="resource\img\wooden-container-steel-frame-specular.png" />
     <Image Include="resource\img\wooden-container-steel-frame.png" />
     <Image Include="resource\img\wooden-container.jpg" />
