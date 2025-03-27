@@ -53,25 +53,28 @@
     </None>
     <None Include="shader\vertex.vert" />
     <None Include="shader\fragment.frag" />
-    <None Include="shader\chapter\1 lighting\color\fragment-color.frag" />
-    <None Include="shader\chapter\1 lighting\color\vertex-color.vert" />
-    <None Include="shader\chapter\1 lighting\color\fragment-color-light.frag" />
-    <None Include="shader\chapter\1 lighting\color\vertex-color-light.vert" />
-    <None Include="shader\chapter\1 lighting\basic-lighting\fragment-color.frag" />
-    <None Include="shader\chapter\1 lighting\basic-lighting\vertex-color.vert" />
-    <None Include="shader\chapter\1 lighting\materials\fragment-color.frag" />
-    <None Include="shader\chapter\1 lighting\materials\fragment-color-light.frag" />
-    <None Include="shader\chapter\1 lighting\lighting-maps\fragment-color.frag" />
-    <None Include="shader\chapter\1 lighting\lighting-maps\vertex-color.vert" />
-    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-directional.frag" />
-    <None Include="shader\chapter\1 lighting\light-casters\vertex-color-directional.vert" />
-    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-point.frag" />
-    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-spot.frag" />
-    <None Include="shader\chapter\1 lighting\light-casters\fragment-color-multiple.frag" />
-    <None Include="shader\chapter\2 model-loading\fragment.frag" />
-    <None Include="shader\chapter\2 model-loading\vertex.vert" />
-    <None Include="shader\chapter\3 advanced opengl\fragment.frag" />
-    <None Include="shader\chapter\3 advanced opengl\vertex.vert" />
+    <None Include="shader\chapter\1-lighting\color\fragment-color.frag" />
+    <None Include="shader\chapter\1-lighting\color\vertex-color.vert" />
+    <None Include="shader\chapter\1-lighting\color\fragment-color-light.frag" />
+    <None Include="shader\chapter\1-lighting\color\vertex-color-light.vert" />
+    <None Include="shader\chapter\1-lighting\basic-lighting\fragment-color.frag" />
+    <None Include="shader\chapter\1-lighting\basic-lighting\vertex-color.vert" />
+    <None Include="shader\chapter\1-lighting\materials\fragment-color.frag" />
+    <None Include="shader\chapter\1-lighting\materials\fragment-color-light.frag" />
+    <None Include="shader\chapter\1-lighting\lighting-maps\fragment-color.frag" />
+    <None Include="shader\chapter\1-lighting\lighting-maps\vertex-color.vert" />
+    <None Include="shader\chapter\1-lighting\light-casters\fragment-color-directional.frag" />
+    <None Include="shader\chapter\1-lighting\light-casters\vertex-color-directional.vert" />
+    <None Include="shader\chapter\1-lighting\light-casters\fragment-color-point.frag" />
+    <None Include="shader\chapter\1-lighting\light-casters\fragment-color-spot.frag" />
+    <None Include="shader\chapter\1-lighting\light-casters\fragment-color-multiple.frag" />
+    <None Include="shader\chapter\2-model-loading\fragment.frag" />
+    <None Include="shader\chapter\2-model-loading\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\stencil-testing\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\depth-testing\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\depth-testing\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment-outline.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
