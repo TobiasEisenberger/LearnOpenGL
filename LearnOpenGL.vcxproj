@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\awesomeface.png" />
+    <Image Include="resource\img\blending_transparent_window.png" />
     <Image Include="resource\img\grass.png" />
     <Image Include="resource\img\marble.jpg" />
     <Image Include="resource\img\metal.png" />

@@ -101,5 +101,8 @@
     <Image Include="resource\img\grass.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resource\img\blending_transparent_window.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
