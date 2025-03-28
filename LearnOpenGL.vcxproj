@@ -165,6 +165,9 @@
     <None Include="shader\chapter\1-lighting\materials\fragment-color.frag" />
     <None Include="shader\chapter\2-model-loading\fragment.frag" />
     <None Include="shader\chapter\2-model-loading\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\fragment-discard.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment-outline.frag" />
@@ -176,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\awesomeface.png" />
+    <Image Include="resource\img\grass.png" />
     <Image Include="resource\img\marble.jpg" />
     <Image Include="resource\img\metal.png" />
     <Image Include="resource\img\wooden-container-steel-frame-specular.png" />

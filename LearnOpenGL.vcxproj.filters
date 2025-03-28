@@ -75,6 +75,9 @@
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment-outline.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\blending\fragment-discard.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
@@ -93,6 +96,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resource\img\metal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resource\img\grass.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
