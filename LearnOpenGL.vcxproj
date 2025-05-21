@@ -170,6 +170,8 @@
     <None Include="shader\chapter\3-advanced-opengl\blending\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\vertex.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.vert" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment-outline.frag" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\vertex.vert" />

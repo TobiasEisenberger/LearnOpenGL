@@ -78,6 +78,8 @@
     <None Include="shader\chapter\3-advanced-opengl\blending\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\blending\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\blending\fragment-discard.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
