@@ -63,7 +63,6 @@ int main()
 	glViewport(0, 0, g_width, g_height);
 	glfwSwapInterval(1);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	glEnable(GL_BLEND);
@@ -202,7 +201,7 @@ int main()
 	glGenVertexArrays(1, &windowsVAO);
 	glBindVertexArray(windowsVAO);
 	glBindTexture(GL_TEXTURE_2D, windowsTexture);
-		
+
 	unsigned int screenPlaneVAO;
 	glGenVertexArrays(1, &screenPlaneVAO);
 	glBindVertexArray(screenPlaneVAO);
@@ -241,7 +240,7 @@ int main()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, g_width, g_height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	
+
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorBuffer, 0);
 
 	unsigned int RBO;
@@ -274,6 +273,7 @@ int main()
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glEnable(GL_DEPTH_TEST);
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		shader.use();
