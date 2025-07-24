@@ -13,6 +13,7 @@
 
 #include "Shader.h"
 #include "Camera.h"
+#include "Sphere.h"
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -65,7 +66,7 @@ int main()
 
 	glViewport(0, 0, g_width, g_height);
 	glfwSwapInterval(1);
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 	std::cout << "OpenGL version: " << glGetString(GL_VERSION) << "\n";
 
@@ -130,20 +131,29 @@ int main()
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
-	unsigned int VAOLightCubeId;
-	glGenVertexArrays(1, &VAOLightCubeId);
-	glBindVertexArray(VAOLightCubeId);
+	unsigned int VAOLightSphereId;
+	glGenVertexArrays(1, &VAOLightSphereId);
+	glBindVertexArray(VAOLightSphereId);
 
-	glBindVertexArray(VAOLightCubeId);
-	glBindBuffer(GL_ARRAY_BUFFER, VBOCubeId);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	unsigned int VBOSphereId;
+	glGenBuffers(1, &VBOSphereId);
+
+	Sphere lightSphere;
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOSphereId);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * lightSphere.GetVertices().size(), lightSphere.GetVertices().data(), GL_STATIC_DRAW);
 
 	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), nullptr);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
-	Shader shaderCube("shader/chapter/lighting/basic-lighting/vertex-color.vert", "shader/chapter/lighting/basic-lighting/fragment-color.frag");
-	Shader shaderLight("shader/chapter/lighting/color/vertex-color-light.vert", "shader/chapter/lighting/color/fragment-color-light.frag");
+	unsigned int EBOSphereId;
+	glGenBuffers(1, &EBOSphereId);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOSphereId);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * lightSphere.GetIndices().size(), lightSphere.GetIndices().data(), GL_STATIC_DRAW);
+
+	Shader shaderCube("shader/chapter/1-lighting/basic-lighting/vertex-color.vert", "shader/chapter/1-lighting/basic-lighting/fragment-color.frag");
+	Shader shaderLight("shader/chapter/1-lighting/color/vertex-color-light.vert", "shader/chapter/1-lighting/color/fragment-color-light.frag");
 
 	glm::mat4 identity(1.0f);
 	while (!glfwWindowShouldClose(window))
@@ -163,7 +173,7 @@ int main()
 		shaderCube.setMat4f("model", glm::value_ptr(glm::mat4(1.0f)));
 		shaderCube.setMat4f("view", glm::value_ptr(viewMatrix));
 		shaderCube.setMat4f("projection", glm::value_ptr(projectionMatrix));
-		
+
 		shaderCube.setFloat3("objectColor", 1.0f, 0.5f, 0.31f);
 		shaderCube.setFloat3("lightColor", 1.0f, 1.0f, 1.0f);
 
@@ -172,27 +182,28 @@ int main()
 		shaderCube.setFloat3("lightPos", lightPos.x, lightPos.y, lightPos.z);
 
 		shaderCube.setFloat3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		
+
 		glBindVertexArray(VAOCubeId);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
+		glBindVertexArray(VAOLightSphereId);
 		shaderLight.use();
 		glm::mat4 lightTransform = glm::translate(glm::mat4(1.0f), lightPos);
-		lightTransform = glm::scale(lightTransform, glm::vec3(0.2f));
+		lightTransform = glm::scale(lightTransform, glm::vec3(0.15f));
 		shaderLight.setMat4f("model", glm::value_ptr(lightTransform));
 		shaderLight.setMat4f("view", glm::value_ptr(viewMatrix));
 		shaderLight.setMat4f("projection", glm::value_ptr(projectionMatrix));
-
-		glBindVertexArray(VAOLightCubeId);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawElements(GL_TRIANGLES, lightSphere.GetIndices().size(), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	glDeleteVertexArrays(1, &VAOCubeId);
-	glDeleteVertexArrays(1, &VAOLightCubeId);
+	glDeleteVertexArrays(1, &VAOLightSphereId);
 	glDeleteBuffers(1, &VBOCubeId);
+	glDeleteBuffers(1, &VBOSphereId);
+	glDeleteBuffers(1, &EBOSphereId);
 	glDeleteProgram(shaderCube.ID);
 	glDeleteProgram(shaderLight.ID);
 
@@ -221,7 +232,7 @@ void processInput(GLFWwindow* window)
 		camera.ProcessKeyboard(LEFT, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, deltaTime);
-	
+
 	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
 		camera.ProcessKeyboard(UP, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
