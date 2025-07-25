@@ -138,8 +138,8 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
-	Shader shaderCube("shader/chapter/lighting/color/vertex-color.vert", "shader/chapter/lighting/color/fragment-color.frag");
-	Shader shaderLight("shader/chapter/lighting/color/vertex-color-light.vert", "shader/chapter/lighting/color/fragment-color-light.frag");
+	Shader shaderCube("shader/chapter/1-lighting/color/vertex-color.vert", "shader/chapter/1-lighting/color/fragment-color.frag");
+	Shader shaderLight("shader/chapter/1-lighting/color/vertex-color-light.vert", "shader/chapter/1-lighting/color/fragment-color-light.frag");
 
 	glm::mat4 identity(1.0f);
 	while (!glfwWindowShouldClose(window))
@@ -159,10 +159,10 @@ int main()
 		shaderCube.setMat4f("model", glm::value_ptr(glm::mat4(1.0f)));
 		shaderCube.setMat4f("view", glm::value_ptr(viewMatrix));
 		shaderCube.setMat4f("projection", glm::value_ptr(projectionMatrix));
-		
+
 		shaderCube.setFloat3("objectColor", 1.0f, 0.5f, 0.31f);
 		shaderCube.setFloat3("lightColor", 1.0f, 1.0f, 1.0f);
-		
+
 		glBindVertexArray(VAOCubeId);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 

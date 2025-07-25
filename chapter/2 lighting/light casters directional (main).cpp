@@ -152,8 +152,8 @@ int main()
 	glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
 	glm::vec3 ambientColor = diffuseColor * glm::vec3(0.05f);
 
-	Shader shaderCube("shader/chapter/lighting/light-casters/vertex-color-directional.vert", "shader/chapter/lighting/light-casters/fragment-color-directional.frag");
-	
+	Shader shaderCube("shader/chapter/1-lighting/light-casters/vertex-color-directional.vert", "shader/chapter/1-lighting/light-casters/fragment-color-directional.frag");
+
 	shaderCube.use();
 	shaderCube.setFloat3("material.specular", 0.5f, 0.5f, 0.5f);
 	shaderCube.setInt("material.shininess", 32);
@@ -163,10 +163,10 @@ int main()
 	shaderCube.setFloat3("light.diffuse", diffuseColor.x, diffuseColor.y, diffuseColor.z);
 	// shaderCube.setFloat3("light.position", lightPos.x, lightPos.y, lightPos.z);
 	shaderCube.setFloat3("light.direction", -0.2f, -1.0f, -0.3f);
-	
+
 	unsigned int textureId = loadTexture("resource/img/wooden-container-steel-frame.png");
 	shaderCube.setInt("material.diffuse", 0);
-	
+
 	unsigned int textureSpecularId = loadTexture("resource/img/wooden-container-steel-frame-specular.png");
 	shaderCube.setInt("material.specular", 1);
 

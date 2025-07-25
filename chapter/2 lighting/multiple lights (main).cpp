@@ -148,8 +148,8 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
-	Shader shaderCube("shader/chapter/lighting/light-casters/vertex-color-directional.vert", "shader/chapter/lighting/light-casters/fragment-color-multiple.frag");
-	
+	Shader shaderCube("shader/chapter/1-lighting/light-casters/vertex-color-directional.vert", "shader/chapter/1-lighting/light-casters/fragment-color-multiple.frag");
+
 	shaderCube.use();
 	shaderCube.setInt("material.shininess", 32);
 
@@ -157,16 +157,16 @@ int main()
 	shaderCube.setFloat3("directionalLight.ambient", 0.05f, 0.05f, 0.05f);
 	shaderCube.setFloat3("directionalLight.diffuse", 0.2f, 0.2f, 0.2f);
 	shaderCube.setFloat3("directionalLight.direction", -0.2f, -1.0f, -0.3f);
-	
+
 	/*shaderCube.setFloat("light.constant", 1.0f);
 	shaderCube.setFloat("light.linear", 0.09f);
 	shaderCube.setFloat("light.quadratic", 0.032f);*/
 	/*shaderCube.setFloat("light.cutOff", glm::cos(glm::radians(12.5f)));
 	shaderCube.setFloat("light.outerCutOff", glm::cos(glm::radians(17.5f)));*/
-	
+
 	unsigned int textureId = loadTexture("resource/img/wooden-container-steel-frame.png");
 	shaderCube.setInt("material.diffuse", 0);
-	
+
 	unsigned int textureSpecularId = loadTexture("resource/img/wooden-container-steel-frame-specular.png");
 	shaderCube.setInt("material.specular", 1);
 
@@ -202,7 +202,7 @@ int main()
 		shaderCube.setFloat("pointLights[" + index + "].quadratic", 0.07f);
 	}
 
-	Shader shaderLight("shader/chapter/lighting/color/vertex-color-light.vert", "shader/chapter/lighting/materials/fragment-color-light.frag");
+	Shader shaderLight("shader/chapter/1-lighting/color/vertex-color-light.vert", "shader/chapter/1-lighting/materials/fragment-color-light.frag");
 	shaderLight.use();
 	shaderLight.setFloat3("lightColor", 1.0f, 1.0f, 1.0f);
 

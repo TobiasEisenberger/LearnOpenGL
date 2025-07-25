@@ -142,7 +142,7 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
-	Shader shaderCube("shader/chapter/lighting/basic-lighting/vertex-color.vert", "shader/chapter/lighting/materials/fragment-color.frag");
+	Shader shaderCube("shader/chapter/1-lighting/basic-lighting/vertex-color.vert", "shader/chapter/1-lighting/materials/fragment-color.frag");
 	shaderCube.use();
 	shaderCube.setFloat3("material.ambient", 1.0f, 0.5f, 0.31f);
 	shaderCube.setFloat3("material.diffuse", 1.0f, 0.5f, 0.31f);
@@ -150,7 +150,7 @@ int main()
 	shaderCube.setInt("material.shininess", 32);
 	shaderCube.setFloat3("light.specular", 1.0f, 1.0f, 1.0f);
 
-	Shader shaderLight("shader/chapter/lighting/color/vertex-color-light.vert", "shader/chapter/lighting/materials/fragment-color-light.frag");
+	Shader shaderLight("shader/chapter/1-lighting/color/vertex-color-light.vert", "shader/chapter/1-lighting/materials/fragment-color-light.frag");
 
 	glm::mat4 identity(1.0f);
 	while (!glfwWindowShouldClose(window))
@@ -178,7 +178,7 @@ int main()
 		shaderCube.setMat4f("model", glm::value_ptr(glm::mat4(1.0f)));
 		shaderCube.setMat4f("view", glm::value_ptr(viewMatrix));
 		shaderCube.setMat4f("projection", glm::value_ptr(projectionMatrix));
-		
+
 		shaderCube.setFloat3("light.ambient", ambientColor.x, ambientColor.y, ambientColor.z);
 		shaderCube.setFloat3("light.diffuse", diffuseColor.x, diffuseColor.y, diffuseColor.z);
 		shaderCube.setFloat3("lightColor", lightColor.x, lightColor.y, lightColor.z);
@@ -188,7 +188,7 @@ int main()
 		shaderCube.setFloat3("lightPos", lightPos.x, lightPos.y, lightPos.z);
 
 		shaderCube.setFloat3("viewPos", camera.Position.x, camera.Position.y, camera.Position.z);
-		
+
 		glBindVertexArray(VAOCubeId);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -239,7 +239,7 @@ void processInput(GLFWwindow* window)
 		camera.ProcessKeyboard(LEFT, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, deltaTime);
-	
+
 	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
 		camera.ProcessKeyboard(UP, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)

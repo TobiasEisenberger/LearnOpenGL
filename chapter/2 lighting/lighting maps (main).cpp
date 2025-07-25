@@ -13,6 +13,7 @@
 
 #include "Shader.h"
 #include "Camera.h"
+#include "Sphere.h"
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -136,24 +137,33 @@ int main()
 	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 
-	unsigned int VAOLightCubeId;
-	glGenVertexArrays(1, &VAOLightCubeId);
-	glBindVertexArray(VAOLightCubeId);
+	unsigned int VAOLightSphereId;
+	glGenVertexArrays(1, &VAOLightSphereId);
+	glBindVertexArray(VAOLightSphereId);
 
-	glBindVertexArray(VAOLightCubeId);
-	glBindBuffer(GL_ARRAY_BUFFER, VBOCubeId);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	unsigned int VBOSphereId;
+	glGenBuffers(1, &VBOSphereId);
+
+	Sphere lightSphere;
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOSphereId);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * lightSphere.GetVertices().size(), lightSphere.GetVertices().data(), GL_STATIC_DRAW);
 
 	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
+
+	unsigned int EBOSphereId;
+	glGenBuffers(1, &EBOSphereId);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOSphereId);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * lightSphere.GetIndices().size(), lightSphere.GetIndices().data(), GL_STATIC_DRAW);
 
 	glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
 	glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
 	glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
 
-	Shader shaderCube("shader/chapter/lighting/lighting-maps/vertex-color.vert", "shader/chapter/lighting/lighting-maps/fragment-color.frag");
-	
+	Shader shaderCube("shader/chapter/1-lighting/lighting-maps/vertex-color.vert", "shader/chapter/1-lighting/lighting-maps/fragment-color.frag");
+
 	shaderCube.use();
 	shaderCube.setFloat3("material.ambient", 1.0f, 0.5f, 0.31f);
 	shaderCube.setFloat3("material.specular", 0.5f, 0.5f, 0.5f);
@@ -163,14 +173,14 @@ int main()
 	shaderCube.setFloat3("light.ambient", ambientColor.x, ambientColor.y, ambientColor.z);
 	shaderCube.setFloat3("light.diffuse", diffuseColor.x, diffuseColor.y, diffuseColor.z);
 	shaderCube.setFloat3("lightPos", lightPos.x, lightPos.y, lightPos.z);
-	
+
 	unsigned int textureId = loadTexture("resource/img/wooden-container-steel-frame.png");
 	shaderCube.setInt("material.diffuse", 0);
-	
+
 	unsigned int textureSpecularId = loadTexture("resource/img/wooden-container-steel-frame-specular.png");
 	shaderCube.setInt("material.specular", 1);
 
-	Shader shaderLight("shader/chapter/lighting/color/vertex-color-light.vert", "shader/chapter/lighting/materials/fragment-color-light.frag");
+	Shader shaderLight("shader/chapter/1-lighting/color/vertex-color-light.vert", "shader/chapter/1-lighting/materials/fragment-color-light.frag");
 	shaderLight.use();
 	shaderLight.setFloat3("lightColor", lightColor.x, lightColor.y, lightColor.z);
 
@@ -210,16 +220,18 @@ int main()
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, textureSpecularId);
 
-		glBindVertexArray(VAOLightCubeId);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(VAOLightSphereId);
+		glDrawElements(GL_TRIANGLES, lightSphere.GetIndices().size(), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	glDeleteVertexArrays(1, &VAOCubeId);
-	glDeleteVertexArrays(1, &VAOLightCubeId);
+	glDeleteVertexArrays(1, &VAOLightSphereId);
 	glDeleteBuffers(1, &VBOCubeId);
+	glDeleteBuffers(1, &VBOSphereId);
+	glDeleteBuffers(1, &EBOSphereId);
 	glDeleteProgram(shaderCube.ID);
 	glDeleteProgram(shaderLight.ID);
 	glDeleteTextures(1, &textureId);
