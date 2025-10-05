@@ -24,6 +24,9 @@
     <ClCompile Include="stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,6 +86,8 @@
     <None Include="shader\chapter\3-advanced-opengl\blending\fragment-discard.frag" />
     <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.vert" />
     <None Include="shader\chapter\3-advanced-opengl\framebuffers\plane.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\cubemaps\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\cubemaps\vertex.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">

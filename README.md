@@ -26,5 +26,6 @@ OpenGL Course from learnopengl.com
 - [X] Alpha Blending
 - [X] Face culling
 - [X] Framebuffers
-- [ ] Cubemaps
+- [X] Cubemaps (Skyboxes)
+- [ ] Cubemaps (Environment Mapping / Refraction)
 

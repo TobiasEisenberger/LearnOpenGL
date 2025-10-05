@@ -71,7 +71,7 @@ int main()
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
 	std::cout << "OpenGL version: " << glGetString(GL_VERSION) << "\n";
-	
+
 	float skyboxVertices[] = {
 		// positions          
 		-1.0f,  1.0f, -1.0f,
@@ -123,7 +123,7 @@ int main()
 
 	unsigned int skyboxVBO;
 	glGenBuffers(1, &skyboxVBO);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
