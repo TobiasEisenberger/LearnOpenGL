@@ -173,6 +173,9 @@
     <None Include="shader\chapter\3-advanced-opengl\blending\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\blending\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\fragment.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\cubemaps\reflect.frag" />
+    <None Include="shader\chapter\3-advanced-opengl\cubemaps\reflect.vert" />
+    <None Include="shader\chapter\3-advanced-opengl\cubemaps\refract.frag" />
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\vertex.vert" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\depth-testing\vertex.vert" />

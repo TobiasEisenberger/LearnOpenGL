@@ -27,5 +27,5 @@ OpenGL Course from learnopengl.com
 - [X] Face culling
 - [X] Framebuffers
 - [X] Cubemaps (Skyboxes)
-- [ ] Cubemaps (Environment Mapping / Refraction)
+- [X] Cubemaps (Environment Mapping / Reflection / Refraction)
 
