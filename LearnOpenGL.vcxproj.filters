@@ -91,6 +91,8 @@
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\reflect.vert" />
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\reflect.frag" />
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\refract.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.vert" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
@@ -115,6 +117,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resource\img\blending_transparent_window.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resource\img\wood.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
