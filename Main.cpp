@@ -159,6 +159,7 @@ int main()
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 	
+	// Shader shaderCube("shader/chapter/4-advanced-lighting/shadow-mapping/depth-map.vert", "shader/chapter/4-advanced-lighting/shadow-mapping/depth-map.frag");
 	Shader shaderCube("shader/chapter/4-advanced-lighting/shadow-mapping/plane.vert", "shader/chapter/4-advanced-lighting/shadow-mapping/plane.frag");
 	Shader shaderPlane("shader/chapter/4-advanced-lighting/shadow-mapping/plane.vert", "shader/chapter/4-advanced-lighting/shadow-mapping/plane.frag");
 
@@ -191,11 +192,25 @@ int main()
 		glBindVertexArray(planeVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
+		// cubes
+		glm::mat4 cubeModelMatrix = glm::translate(identity, glm::vec3(0.0f, 1.5f, 0.0));
+		cubeModelMatrix = glm::scale(cubeModelMatrix, glm::vec3(0.5f));
 		shaderCube.use();
-		shaderCube.setMat4f("model", glm::value_ptr(identity));
+		shaderCube.setMat4f("model", glm::value_ptr(cubeModelMatrix));
 		shaderCube.setMat4f("view", glm::value_ptr(viewMatrix));
 		shaderCube.setMat4f("projection", glm::value_ptr(projectionMatrix));
 		glBindVertexArray(VAOCubeId);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		cubeModelMatrix = glm::translate(identity, glm::vec3(2.0f, 0.0f, 1.0));
+		cubeModelMatrix = glm::scale(cubeModelMatrix, glm::vec3(0.5f));
+		shaderCube.setMat4f("model", glm::value_ptr(cubeModelMatrix));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		cubeModelMatrix = glm::translate(identity, glm::vec3(-1.0f, 0.0f, 2.0));
+		cubeModelMatrix = glm::rotate(cubeModelMatrix, glm::radians(60.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
+		cubeModelMatrix = glm::scale(cubeModelMatrix, glm::vec3(0.5f));
+		shaderCube.setMat4f("model", glm::value_ptr(cubeModelMatrix));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		glfwSwapBuffers(window);

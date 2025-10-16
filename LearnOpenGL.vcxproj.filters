@@ -93,6 +93,8 @@
     <None Include="shader\chapter\3-advanced-opengl\cubemaps\refract.frag" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.vert" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.vert" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
