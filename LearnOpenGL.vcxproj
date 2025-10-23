@@ -184,14 +184,10 @@
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment-outline.frag" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\fragment.frag" />
     <None Include="shader\chapter\3-advanced-opengl\stencil-testing\vertex.vert" />
-    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map-screen-quad.frag" />
-    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map-screen-quad.vert" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.frag" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.vert" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.frag" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.vert" />
-    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.frag" />
-    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\plane.vert" />
     <None Include="shader\fragment.frag" />
     <None Include="shader\vertex.vert" />
     <None Include="vs1.bin" />
