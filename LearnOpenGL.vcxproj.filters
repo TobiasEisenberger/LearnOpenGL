@@ -97,6 +97,8 @@
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.frag" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map-screen-quad.vert" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map-screen-quad.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.vert" />
+    <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
