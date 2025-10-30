@@ -28,5 +28,5 @@ OpenGL Course from learnopengl.com
 - [X] Framebuffers
 - [X] Cubemaps (Skyboxes)
 - [X] Cubemaps (Environment Mapping / Reflection / Refraction)
-- [X] Depth Mapping
+- [X] Depth Mapping (Directional Light / Point Lights)
 

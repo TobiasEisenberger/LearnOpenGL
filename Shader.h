@@ -13,22 +13,33 @@ public:
     unsigned int ID;
     // constructor generates the shader on the fly
     // ------------------------------------------------------------------------
-    Shader(const char* vertexPath, const char* fragmentPath)
+    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr)
     {
-        // 1. retrieve the vertex/fragment source code from filePath
+        // 1. retrieve the vertex/geometry/fragment source code from filePath
         std::string vertexCode;
+        std::string geometryCode;
         std::string fragmentCode;
         std::ifstream vShaderFile;
+        std::ifstream gShaderFile;
         std::ifstream fShaderFile;
         // ensure ifstream objects can throw exceptions:
         vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+        gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         try
         {
             // open files
             vShaderFile.open(vertexPath);
+            if (geometryPath)
+            {
+                std::stringstream gShaderStream;
+                gShaderFile.open(geometryPath);
+                gShaderStream << gShaderFile.rdbuf();
+                gShaderFile.close();
+                geometryCode = gShaderStream.str();
+            }
             fShaderFile.open(fragmentPath);
-            std::stringstream vShaderStream, fShaderStream;
+            std::stringstream vShaderStream, gShaderStream, fShaderStream;
             // read file's buffer contents into streams
             vShaderStream << vShaderFile.rdbuf();
             fShaderStream << fShaderFile.rdbuf();
@@ -46,7 +57,7 @@ public:
         const char* vShaderCode = vertexCode.c_str();
         const char* fShaderCode = fragmentCode.c_str();
         // 2. compile shaders
-        unsigned int vertex, fragment;
+        unsigned int vertex, geometry, fragment;
         // vertex shader
         vertex = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vertex, 1, &vShaderCode, NULL);
@@ -60,11 +71,23 @@ public:
         // shader Program
         ID = glCreateProgram();
         glAttachShader(ID, vertex);
+        // geometry shader
+        if (geometryPath)
+        {
+            const char* gShaderCode = geometryCode.c_str();
+            geometry = glCreateShader(GL_GEOMETRY_SHADER);
+            glShaderSource(geometry, 1, &gShaderCode, NULL);
+            glCompileShader(geometry);
+            checkCompileErrors(geometry, "GEOMETRY");
+            glAttachShader(ID, geometry);
+        }
         glAttachShader(ID, fragment);
         glLinkProgram(ID);
         checkCompileErrors(ID, "PROGRAM");
         // delete the shaders as they're linked into our program now and no longer necessary
         glDeleteShader(vertex);
+        if (geometryPath)
+            glDeleteShader(geometry);
         glDeleteShader(fragment);
     }
     // activate the shader

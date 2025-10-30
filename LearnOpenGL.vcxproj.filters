@@ -95,6 +95,11 @@
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\depth-map.frag" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.vert" />
     <None Include="shader\chapter\4-advanced-lighting\shadow-mapping\lighting.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\point-shadows\depth-map.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\point-shadows\depth-map.vert" />
+    <None Include="shader\chapter\4-advanced-lighting\point-shadows\depth-map.geom" />
+    <None Include="shader\chapter\4-advanced-lighting\point-shadows\lighting.frag" />
+    <None Include="shader\chapter\4-advanced-lighting\point-shadows\lighting.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\img\wooden-container.jpg">
